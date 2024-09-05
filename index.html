@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <style>
+            #calculator{
+    background-color:grey;
+    width: 200px;height: 330px; 
+    border-radius:4px;
+    
+    
+}
+#display{
+    color:black;
+    width: 170px;height: 40px;
+    margin-top:20px; margin-left:10px;
+    }
+#toggle{
+    background-color:red;
+    width: 60px;height: 40px;
+    border-radius:5px;
+    
+}
+#btn{
+    padding:5px;5px;5px;5px;
+    margin-top:2px;
+   
+}
+.opp{
+color:black;
+width: 40px;height: 40px;
+border-radius:5px;
+background-color:#ff8a7f;
+    color:white;
+}
+.number{
+    width: 40px;height: 40px;
+    border-radius:5px;
+    background-color:black;
+    color:white;
+}
+#btn{
+    padding:10px;5px;5px;5px;
+    margin-top:40px;
+   
+}
+.number1{
+    width: 40px;height: 40px;
+    border-radius:5px;
+    background-color:#000033;
+    color:white;
+
+        </style>
+        <meta charset ="UTF-8">
+        <meta http-equiv="X-UA-compatible" content ="IE =Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Philip-Calculator</title>
+        
+    </head>
+    <body>
+        <div id ="calculator">
+            <input id ="display">
+            <div id ="btn">
+                <button id="toggle">ON/OFF</button><br/>
+                <button onclick ="appendDisplay('+')" class ="opp">+</button>
+                <button onclick ="appendDisplay('9')" class="number">9</button> 
+                <button onclick ="appendDisplay('8')"class ="number">8</button> 
+                <button onclick ="appendDisplay('7')"class ="number">7</button><br/>
+                <button onclick ="appendDisplay('-')" class ="opp">-</button> 
+                <button onclick ="appendDisplay('6')" class ="number">6</button> 
+                <button onclick ="appendDisplay('5')" class ="number">5</button> 
+                <button onclick ="appendDisplay('4')" class ="number">4</button><br/>
+                <button onclick ="appendDisplay('/')" class ="opp">÷</button>
+                  <button onclick ="appendDisplay('3')" class ="number">3</button> 
+                    <button onclick ="appendDisplay('2')" class ="number">2</button> 
+                      <button onclick ="appendDisplay('1')" class ="number">1</button> <br/>
+                      <button onclick ="appendDisplay('*')" class ="opp">×</button>
+  <button onclick ="equal()" class ="number1">=</button>            
+                      <button onclick ="appendDisplay('0')" class ="number">0</button> 
+                     
+                  <button onclick ="clearD()" class ="number1" >C</button> 
+                
+            </div>
+        </div>
+        <script>
+            const display = document.getElementById('display');
+function appendDisplay (input) {
+    display.value +=input;
+}
+function equal (){
+    try{
+    display.value = eval(display.value);
+    }catch (e){    
+    display.value = "syntax error";
+        }
+      }
+function clearD(){
+  display.value = "";
+ }
+const toggleButton=document.getElementById('toggle');
+const calculator=document.getElementById('calculator');
+toggleButton.addEventListener('click', () => {
+  if (calculator.disabled){
+  calculator.disabled=false;
+      toggleButton.textContent = 'OFF';
+  } else {
+  true;
+    toggleButton.textContent = 'ON';
+  }
+});
+
+        </script>
+    </body>
+</html>
