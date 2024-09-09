@@ -14,7 +14,7 @@
     width: 170px;height: 40px;
     margin-top:20px; margin-left:10px;
     }
-#toggle{
+#toggle-calculator{
     background-color:red;
     width: 60px;height: 40px;
     border-radius:5px;
@@ -48,6 +48,14 @@ background-color:#ff8a7f;
     border-radius:5px;
     background-color:#000033;
     color:white;
+} 
+.delete{
+    width: 40px;height: 40px;
+    border-radius:5px;
+    background-color:#000033;
+    color:white;
+    margin-left:70px;
+}
 
         </style>
         <meta charset ="UTF-8">
@@ -60,7 +68,9 @@ background-color:#ff8a7f;
         <div id ="calculator">
             <input id ="display">
             <div id ="btn">
-                <button id="toggle">ON/OFF</button><br/>
+                <button id="toggle-calculator">ON/OFF</button> 
+                <button onclick="deleteLastChar()" class="delete">DEL</button>
+                <br/>
                 <button onclick ="appendDisplay('+')" class ="opp">+</button>
                 <button onclick ="appendDisplay('9')" class="number">9</button> 
                 <button onclick ="appendDisplay('8')"class ="number">8</button> 
@@ -78,6 +88,7 @@ background-color:#ff8a7f;
                       <button onclick ="appendDisplay('0')" class ="number">0</button> 
                      
                   <button onclick ="clearD()" class ="number1" >C</button> 
+                  
                 
             </div>
         </div>
@@ -96,17 +107,13 @@ function equal (){
 function clearD(){
   display.value = "";
  }
-const toggleButton=document.getElementById('toggle');
-const calculator=document.getElementById('calculator');
-toggleButton.addEventListener('click', () => {
-  if (calculator.disabled){
-  calculator.disabled=false;
-      toggleButton.textContent = 'OFF';
-  } else {
-  true;
-    toggleButton.textContent = 'ON';
-  }
-});
+ function deleteLastChar(){
+ const displayValue = display.value;
+ display.value = displayValue.slice(0,-1);
+} 
+
+
+      
 
         </script>
     </body>
